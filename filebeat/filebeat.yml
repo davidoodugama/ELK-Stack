@@ -1,0 +1,25 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /usr/share/filebeat/mylog/*.log
+
+  # - type: tcp
+  #   enabled: true
+  #   hosts: ["localhost:9201"]
+
+# filebeat.config:
+#   modules:
+#     path: ${path.config}/modules.d/*.yml
+#     reload.enabled: false
+
+# filebeat.autodiscover:
+#   providers:
+#     - type: docker
+#       hints.enabled: true
+
+# processors:
+#   - add_cloud_metadata: ~
+
+output.logstash:
+  hosts: "172.17.0.4:5044"

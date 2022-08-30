@@ -1,0 +1,18 @@
+# filebeat.inputs:
+#   - type: log
+#     enabled: true
+#     paths:
+#       - "/elk-with-filebeat-by-docker-compose/mylog/apache-daily-access.log"
+# output.logstash:
+#   hosts: ["Logstash:5044"]
+output:
+  logstash:
+    enabled: true
+    hosts:
+      - logstash:5044
+    timeout: 15
+
+filebeat:
+  inputs:
+    - paths:
+        - "/logstash_dir/*.log"
